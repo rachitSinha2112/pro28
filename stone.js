@@ -4,7 +4,7 @@ class Stone {
         isStatic:false
         }
         this.image=loadImage("stone.png")
-        this.body= Matter.Bodies.circle(100,630,80,options);
+        this.body= Matter.Bodies.circle(80,630,50,options);
         this.width=width;
         this.height=height;
         World.add(world,this.body);
