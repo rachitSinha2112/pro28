@@ -1,9 +1,9 @@
 class sling{
-    constructor(bodyA, pointB){
+    constructor(bodyA, bodyB){
         var options = {
             bodyA: bodyA,
-            pointB: pointB,
-            stiffness: 0.5,
+            bodyB: bodyB,
+            stiffness: 1.0,
             length: 20
         }
         this.sling = Constraint.create(options);
@@ -16,7 +16,7 @@ fly(){
     display(){
         if( this.sling.bodyA!=null){
         var pointA = this.sling.bodyA.position;
-        var pointB = this.sling.pointB;
+        var pointB = this.sling.bodyB.position;
         strokeWeight(5);
         line(pointA.x, pointA.y, pointB.x, pointB.y);
     }
