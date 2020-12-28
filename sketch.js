@@ -1,4 +1,5 @@
 
+
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -21,7 +22,7 @@ ground1=new Ground(10,690,3000,10);
 boy1=new Boy(200,630,80,140);
 tree1=new Tree(1000,400,700,500);
 stone=new Stone();
-sling1=new sling(stone.body,{x:200,y:600});
+sling1=new sling(stone.body,boy1.body);
 
 mango1=new Mango(1000,100,40);
 mango2=new Mango(1100,200,40); 
@@ -48,13 +49,9 @@ function draw() {
 
 
   boy1.display();
-
   ground1.display();
-
   tree1.display();
-
   stone.display();
-
   sling1.display();
 
   mango2.display();
@@ -66,6 +63,17 @@ function draw() {
   mango7.display(); 
   mango8.display();
   mango9.display();
+
+detectollision(stone,mango1);
+detectollision(stone,mango2);
+detectollision(stone,mango3);
+detectollision(stone,mango4);
+detectollision(stone,mango5);
+detectollision(stone,mango6);
+detectollision(stone,mango7);
+detectollision(stone,mango8);
+detectollision(stone,mango9);
+
 }
 
 function mouseDragged(){
@@ -75,5 +83,19 @@ function mouseDragged(){
 function mouseReleased(){
   sling1.fly();
 }
+function detectollision(lstone,lmango){
+  mangoBodyPosition=lmango.body.position;
+  stoneBodyPosition=lstone.body.position;
 
-
+  var distance=dist(stoneBodyPosition.x,stoneBodyPosition.y,mangoBodyPosition.x,mangoBodyPosition.y)
+  if(distance<=lmango.r+lstone.r)
+  {
+    Matter.Body.setStatic(lmango.body,false);
+  }
+}
+function keyPressed(){
+  if(keyCode===32){
+Matter.Body.setPosition(stone.body,{x:80,y:630})
+boy1.attach(stone.body)
+  }
+}
