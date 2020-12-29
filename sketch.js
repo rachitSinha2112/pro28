@@ -22,7 +22,7 @@ ground1=new Ground(10,690,3000,10);
 boy1=new Boy(200,630,80,140);
 tree1=new Tree(1000,400,700,500);
 stone=new Stone();
-sling1=new sling(stone.body,boy1.body);
+sling1=new Launcher(stone.body,{x:200,y:500});
 
 mango1=new Mango(1000,100,40);
 mango2=new Mango(1100,200,40); 
@@ -95,7 +95,7 @@ function detectollision(lstone,lmango){
 }
 function keyPressed(){
   if(keyCode===32){
-Matter.Body.setPosition(stone.body,{x:80,y:630})
-boy1.attach(stone.body)
+//Matter.Body.setPosition(stone.body,{x:80,y:630})
+sling1.attach(stone.body)
   }
 }
