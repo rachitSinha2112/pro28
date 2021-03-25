@@ -1,12 +1,13 @@
 class Stone {
-    constructor(){
+    constructor(x,y,radius){
         var options={
         isStatic:false
         }
         this.image=loadImage("stone.png")
-        this.body= Matter.Bodies.circle(80,630,50,options);
+        this.body= Matter.Bodies.circle(x,y,radius,options);
         this.width=width;
         this.height=height;
+        this.r=radius;
         World.add(world,this.body);
 
     }
