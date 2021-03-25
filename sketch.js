@@ -22,7 +22,7 @@ function setup() {
 ground1=new Ground(10,690,3000,10);	
 //boy1=new Boy(200,630,80,140);
 //tree1=new Tree(1000,400,700,500);
-stone=new Stone();
+stone=new Stone(80,630,50);
 sling1=new Launcher(stone.body,{x:150,y:600});
 
 mango1=new Mango(1000,100,40);
@@ -101,3 +101,4 @@ Matter.Body.setPosition(stone.body,{x:80,y:630})
 sling1.attach(stone.body)
   }
 }
+
